@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>วัวชนสายใต้</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+
+body{
+  font-family:Arial, sans-serif;
+  background:#2b2b2b;
+  color:white;
+}
+
+/* ===== TOP BAR ===== */
+.topbar{
+  position:fixed;
+  top:0;left:0;
+  width:100%;
+  height:140px;
+  background:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-bottom:2px solid #ff8c00;
+  z-index:1000;
+}
+
+/* 3 ขีด */
+.menu-btn{
+  position:absolute;
+  left:20px;
+  font-size:36px;
+  color:#ffb347;
+  cursor:pointer;
+}
+
+/* โลโก้ */
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  text-decoration:none;
+}
+.brand img{
+  height:70px;
+  animation:blink 1.5s infinite;
+}
+.site-name{
+  font-size:28px;
+  font-weight:bold;
+  color:#ffcc00;
+  animation:blinkText 1.5s infinite;
+}
+
+/* ===== SIDEBAR ===== */
+.sidebar{
+  position:fixed;
+  top:0;
+  left:-240px;
+  width:240px;
+  height:100%;
+  background:linear-gradient(180deg,#ff7a00,#ffb347);
+  padding-top:160px;
+  transition:.3s;
+  z-index:2000;
+}
+.sidebar a{
+  display:block;
+  padding:14px 22px;
+  color:white;
+  text-decoration:none;
+  font-weight:bold;
+}
+.sidebar a:hover{
+  background:rgba(255,255,255,.25);
+}
+
+/* overlay */
+.overlay{
+  position:fixed;
+  top:0;left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.5);
+  display:none;
+  z-index:1500;
+}
+
+/* ===== CONTENT ===== */
+.content{
+  padding:180px 15px 40px;
+}
+
+/* ===== SEARCH ===== */
+.search-box{
+  text-align:center;
+  margin-bottom:25px;
+}
+.search-box input{
+  padding:12px;
+  width:220px;
+  border:none;
+  border-radius:6px;
+}
+.search-box button{
+  padding:12px 18px;
+  border:none;
+  border-radius:6px;
+  background:#ff8c00;
+  color:black;
+  font-weight:bold;
+  cursor:pointer;
+}
+
+/* ===== TABLE ===== */
+table{
+  width:100%;
+  border-collapse:collapse;
+  background:white;
+  color:black;
+}
+th,td{
+  border:1px solid #333;
+  padding:8px;
+  text-align:center;
+}
+th{
+  background:linear-gradient(90deg,#ff8c00,#ffd166);
+}
+tr:nth-child(even){
+  background:#f2f2f2;
+}
+
+/* ===== ANIMATION ===== */
+@keyframes blink{
+  0%,100%{opacity:1}
+  50%{opacity:.4}
+}
+@keyframes blinkText{
+  0%,100%{opacity:1}
+  50%{opacity:.5}
+}
+/* ===== COW HISTORY TABLE ===== */
+.history-wrap{
+  margin:50px auto;
+  max-width:900px;
+}
+
+.history-title{
+  text-align:center;
+  font-size:28px;
+  font-weight:bold;
+  color:#ffcc00;
+  margin-bottom:20px;
+  text-shadow:0 0 10px rgba(255,165,0,.8);
+}
+
+.history-table{
+  width:100%;
+  border-collapse:collapse;
+  background:#111;
+  color:#fff;
+  border-radius:14px;
+  overflow:hidden;
+  box-shadow:0 15px 40px rgba(0,0,0,.7);
+}
+
+.history-table th{
+  background:linear-gradient(90deg,#ff8c00,#ffd166);
+  color:#000;
+  padding:14px;
+  font-size:16px;
+  border-bottom:2px solid #000;
+}
+
+.history-table td{
+  padding:12px;
+  text-align:center;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  font-size:15px;
+}
+
+.history-table tr:nth-child(even){
+  background:#1a1a1a;
+}
+
+.history-table tr:hover{
+  background:rgba(255,140,0,.15);
+  transition:.25s;
+}
+
+/* ฝ่าย */
+.red-cow{color:#ff5252;font-weight:bold}
+.blue-cow{color:#40c4ff;font-weight:bold}
+
+/* mobile */
+@media(max-width:600px){
+  .history-title{font-size:22px}
+  .history-table th,
+  .history-table td{
+    font-size:14px;
+    padding:10px;
+  }
+.pro-table-wrap{
+  margin-top:10px; /* ปรับเลขได้ 60 / 100 ตามที่ชอบ */
+}
+<div class="topbar">
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+  <a href="index.html" class="brand">
+    <img src="images/logo.png" alt="logo">
+    <div class="site-name">วัวชนสายใต้</div>
+  </a>
+</div>
+}
+     /* ปุ่ม 3 ขีด */
+.menu-btn{
+  position:fixed;
+  top:20px;
+  left:20px;
+  font-size:34px;
+  color:#ffb347;
+  cursor:pointer;
+  z-index:3000;
+}
+
+/* sidebar */
+.sidebar{
+  position:fixed;
+  top:0;
+  left:-240px;
+  width:240px;
+  height:100%;
+  background:linear-gradient(180deg,#ff7a00,#ffb347);
+  padding-top:120px;
+  transition:.3s;
+  z-index:2500;
+}
+.sidebar a{
+  display:block;
+  padding:14px 20px;
+  color:#fff;
+  text-decoration:none;
+  font-weight:bold;
+}
+.sidebar a:hover{
+  background:rgba(255,255,255,.25);
+}
+
+/* overlay */
+.overlay{
+  position:fixed;
+  top:0; left:0;
+  width:100%;
+  height:100%;
+  background:rgba(0,0,0,.5);
+  display:none;
+  z-index:2000;
+}
+/* TOPBAR */
+.topbar{
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 120px;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+}
+
+/* แถบเส้นใต้หัวเว็บ */
+.topbar-line{
+  position: fixed;
+  top: 120px;
+  left: 0;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(90deg,#ff6a00,#ffd166,#ff6a00);
+  z-index: 1999;
+}
+
+/* ปุ่ม 3 ขีด */
+.menu-btn{
+  position: absolute;
+  left: 20px;
+  font-size: 34px;
+  color: #ffb347;
+  cursor: pointer;
+}
+
+/* โลโก้ + ชื่อ */
+.brand{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+/* โลโก้ */
+.brand img{
+  height: 55px;
+}
+
+/* ชื่อเว็บ */
+.site-name{
+  color: #ffcc00;
+  font-size: 26px;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255,165,0,.8);
+}
+
+/* กระพิบเรืองแสง */
+@keyframes glowBlink{
+  0%{opacity:1; filter:drop-shadow(0 0 5px #ff9800);}
+  50%{opacity:.6; filter:drop-shadow(0 0 18px #ff9800);}
+  100%{opacity:1; filter:drop-shadow(0 0 5px #ff9800);}
+}
+
+.blink-logo img,
+.blink-logo .site-name{
+  animation: glowBlink 1.5s infinite;
+}
+
+/* ดันเนื้อหาลง */
+body{
+  padding-top: 140px;
+}
+
+</style>
+</head>
+
+<body>
+
+<!-- TOP BAR -->
+<div class="topbar">
+
+  <!-- โลโก้ + ชื่อ (ตรงกลาง) -->
+  <a href="index.html" class="brand blink-logo">
+    <img src="images/logo.png" alt="โลโก้">
+    <span class="site-name">วัวชนสายใต้</span>
+  </a>
+
+</div>
+
+<!-- แถบคั่นใต้หัวเว็บ -->
+<div class="topbar-line"></div>
+
+
+
+
+  
+<div class="history-wrap">
+
+  <div class="history-title">📜 ผัง34</div>
+
+  <table class="history-table">
+    <thead>
+      <tr>
+        <th>ลำดับ</th>
+        <th>ชื่อวัว</th>
+              <th></th>
+         <th></th>
+         <th></th>
+        <th>สรุปผล</th>
+        
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td class="red-cow"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td>2</td>
+        <td class="blue-cow"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td>3</td>
+        <td class="red-cow"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+  
+
+
+<div class="history-wrap">
+
+  <div class="history-title">📜 หยีใน</div>
+
+  <table class="history-table">
+    <thead>
+      <tr>
+        <th>ลำดับ</th>
+        <th>ชื่อวัว</th>
+                 <th></th>
+         <th></th>
+                  <th></th>
+                   <th>สรุปผล</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td class="red-cow"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td>2</td>
+        <td class="blue-cow"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+
+      <tr>
+        <td>3</td>
+        <td class="red-cow"></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </tbody>
+  </table>
+
+</div>
+
+
+
+
+<script>
+function toggleMenu(){
+  const sb=document.getElementById("sidebar");
+  const ov=document.getElementById("overlay");
+  if(sb.style.left==="0px"){
+    sb.style.left="-240px";
+    ov.style.display="none";
+  }else{
+    sb.style.left="0px";
+    ov.style.display="block";
+  }
+}
+
+</script>
+<script>
+function toggleMenu(){
+  document.getElementById("sidebar").classList.toggle("active");
+  document.getElementById("overlay").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

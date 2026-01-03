@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>วัวชนสายใต้</title>
+
+<style>
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:#0f0f0f;
+  color:white;
+}
+
+/* ===== แถบบน ===== */
+.topbar{
+  background:linear-gradient(90deg,#000,#111,#000);
+  height:120px;
+  position:relative;
+  border-bottom:3px solid gold;
+}
+
+/* ===== เมนู 3 ขีด ===== */
+.hamburger{
+  position:absolute;
+  top:35px;
+  left:25px;
+  font-size:32px;
+  color:gold;
+  cursor:pointer;
+}
+
+/* ===== เมนู ===== */
+.menu{
+  display:none;
+  position:absolute;
+  top:80px;
+  left:20px;
+  background:#111;
+  border-radius:10px;
+  box-shadow:0 5px 20px rgba(255,215,0,.3);
+  overflow:hidden;
+}
+.menu a{
+  display:block;
+  padding:14px 22px;
+  text-decoration:none;
+  color:gold;
+  font-weight:bold;
+}
+.menu a:hover{
+  background:#222;
+}
+
+/* ===== โลโก้ + ชื่อ ===== */
+.logo-box{
+  text-align:center;
+  padding-top:12px;
+}
+.logo-box img{
+  width:85px;
+  animation:blink 1.2s infinite;
+}
+.logo-box h1{
+  margin-top:-12px;
+  font-size:28px;
+  color:gold;
+  letter-spacing:2px;
+  animation:blink 1.2s infinite;
+}
+
+/* ===== กะพิบ ===== */
+@keyframes blink{
+  0%{opacity:1}
+  50%{opacity:.3}
+  100%{opacity:1}
+}
+
+/* ===== ส่วนปก ===== */
+.hero{
+  background:
+    linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.9)),
+    url("images/bull-bg.jpg");
+  background-size:cover;
+  background-position:center;
+  padding:100px 20px;
+  text-align:center;
+}
+.hero h2{
+  font-size:42px;
+  color:gold;
+}
+.hero p{
+  font-size:18px;
+  max-width:650px;
+  margin:20px auto;
+  color:#ddd;
+}
+
+/* ===== กล่องข้อมูล ===== */
+.section{
+  padding:70px 8%;
+}
+.card-grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:28px;
+}
+.card{
+  background:#111;
+  border-radius:18px;
+  box-shadow:0 10px 30px rgba(0,0,0,.7);
+  padding:35px 25px;
+  text-align:center;
+  border:1px solid #222;
+}
+.card h3{
+  color:gold;
+  margin-bottom:12px;
+}
+.card p{
+  color:#bbb;
+}
+
+/* ===== มือถือ ===== */
+@media(max-width:600px){
+  .hero h2{font-size:32px}
+}
+/* ===== MENU CARD SECTION ===== */
+.menu-section{
+  max-width:900px;
+  margin:60px auto;
+  display:flex;
+  flex-direction:column;
+  gap:40px;
+}
+
+.menu-card{
+  background:linear-gradient(180deg,#111,#1b1b1b);
+  border-radius:18px;
+  padding:30px 20px;
+  text-align:center;
+  box-shadow:0 20px 40px rgba(0,0,0,.8);
+  position:relative;
+  transition:.3s;
+}
+
+.menu-card::before{
+  content:"";
+  position:absolute;
+  top:0;
+  left:0;
+  width:100%;
+  height:4px;
+  background:linear-gradient(90deg,#ff8c00,#ffd166,#ff8c00);
+}
+
+.menu-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 30px 60px rgba(255,140,0,.3);
+}
+
+/* ไอคอน */
+.menu-icon{
+  font-size:38px;
+  margin-bottom:10px;
+}
+
+/* หัวข้อ */
+.menu-title{
+  font-size:26px;
+  font-weight:bold;
+  color:#c77dff;
+  margin-bottom:8px;
+  text-decoration:none;
+  display:inline-block;
+}
+
+.menu-title:hover{
+  text-shadow:0 0 12px rgba(199,125,255,.9);
+}
+
+/* คำอธิบาย */
+.menu-desc{
+  font-size:16px;
+  color:#ddd;
+  line-height:1.6;
+}
+
+/* เส้นคั่น */
+.menu-divider{
+  width:120px;
+  height:2px;
+  margin:15px auto;
+  background:linear-gradient(90deg,transparent,#ff8c00,transparent);
+}
+
+/* mobile */
+@media(max-width:600px){
+  .menu-title{font-size:22px}
+  .menu-desc{font-size:14px}
+}
+<div class="topbar">
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+  <a href="index.html" class="brand">
+    <img src="images/logo.png" alt="logo">
+    <div class="site-name">วัวชนสายใต้</div>
+  </a>
+</div>
+}
+
+</style>
+</head>
+
+<body>
+
+
+ <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
+
+
+    <!-- โลโก้ + ชื่อ -->
+  <div class="logo-box">
+    <img src="images/logo.png" alt="logo">
+    <h1>วัวชนสายใต้</h1>
+  </div>
+
+</div>
+
+<!-- หน้าปก -->
+<section class="hero">
+  <h2>ศูนย์รวมวัวชนสายใต้</h2>
+  <p>
+    วัวชนแท้ ดุดัน แข็งแกร่ง  
+    รวมประวัติ เชิงชน สถิติสนามจริง
+  </p>
+</section>
+
+<div class="menu-section">
+
+  <!-- การ์ดที่ 1 -->
+  <div class="menu-card">
+    <div class="menu-icon">📜</div>
+    <a href="daroof.html" class="menu-title">ตารางวัวพรุ่งนี้</a>
+    <div class="menu-divider"></div>
+    <div class="menu-desc">
+      รวมคู่ชน สนามเด็ด  
+      อัปเดตทุกวัน
+    </div>
+  </div>
+
+  <!-- การ์ดที่ 2 -->
+  <div class="menu-card">
+    <div class="menu-icon">🐂</div>
+    <a href="search.html" class="menu-title">ทีเด็ดวัวชน</a>
+    <div class="menu-divider"></div>
+    <div class="menu-desc">
+      ค้นหาวัวชนตามชื่อ  
+      เซียนชน คอกดัง
+    </div>
+  </div>
+
+</div>
+
+</div>
+
+   
+  </div>
+</section>
+
+</script>
+<script>
+function toggleMenu(){
+  document.getElementById("sidebar").classList.toggle("active");
+  document.getElementById("overlay").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

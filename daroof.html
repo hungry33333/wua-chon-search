@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>วัวชนสายใต้</title>
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+body{
+  font-family:Arial, sans-serif;
+  background:#2b2b2b;
+  color:white;
+}
+
+/* ================= TOPBAR ================= */
+.topbar{
+  position:fixed;
+  top:0; left:0;
+  width:100%;
+  height:80px;
+  background:#000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  border-bottom:3px solid #ff8c00;
+  box-shadow:0 6px 20px rgba(0,0,0,.9);
+  z-index:1000;
+}
+
+/* เมนู 3 ขีด */
+.menu-btn{
+  position:absolute;
+  left:20px;
+  font-size:34px;
+  cursor:pointer;
+  color:#ffb347;
+}
+
+/* โลโก้ตรงกลาง */
+.logo-center{
+  position:absolute;
+  left:50%;
+  transform:translateX(-50%);
+  display:flex;
+  align-items:center;
+  gap:10px;
+}
+
+.logo-center img{
+  height:45px;
+}
+
+.logo-center span{
+  font-size:22px;
+  font-weight:bold;
+  color:#ffcc00;
+}
+
+/* ================= โลโก้กระพิบ ================= */
+@keyframes logoBlinkPerfect{
+  0%{
+    opacity:1;
+    transform:scale(1);
+    filter:drop-shadow(0 0 6px orange);
+  }
+  50%{
+    opacity:.45;
+    transform:scale(1.05);
+    filter:drop-shadow(0 0 18px orange);
+  }
+  100%{
+    opacity:1;
+    transform:scale(1);
+    filter:drop-shadow(0 0 6px orange);
+  }
+}
+
+.logo-blink img,
+.logo-blink span{
+  animation:logoBlinkPerfect 1.6s ease-in-out infinite;
+}
+/* ===== PRO COW TABLE ===== */
+.pro-table-wrap{
+  margin:40px auto;
+  max-width:1100px;
+  overflow-x:auto;
+}
+
+.pro-table-title{
+  text-align:center;
+  font-size:30px;
+  font-weight:bold;
+  color:#ffcc00;
+  margin-bottom:20px;
+  letter-spacing:1px;
+  text-shadow:0 0 12px rgba(255,170,0,.9);
+}
+
+.pro-table{
+  width:100%;
+  min-width:800px;
+  border-collapse:separate;
+  border-spacing:0;
+  background:#111;
+  color:#fff;
+  border-radius:16px;
+  overflow:hidden;
+  box-shadow:0 20px 50px rgba(0,0,0,.8);
+}
+
+/* หัวตาราง */
+.pro-table thead th{
+  background:linear-gradient(90deg,#ff8c00,#ffd166);
+  color:#000;
+  padding:16px;
+  font-size:16px;
+  border-bottom:2px solid #000;
+}
+
+/* ช่องข้อมูล */
+.pro-table tbody td{
+  padding:14px;
+  text-align:center;
+  border-bottom:1px solid rgba(255,255,255,.08);
+  font-size:15px;
+}
+
+/* สลับแถว */
+.pro-table tbody tr:nth-child(even){
+  background:#1a1a1a;
+}
+
+/* hover */
+.pro-table tbody tr:hover{
+  background:rgba(255,140,0,.15);
+  transition:.25s;
+}
+
+/* ฝ่าย */
+.red-team{
+  color:#ff5252;
+  font-weight:bold;
+}
+.blue-team{
+  color:#40c4ff;
+  font-weight:bold;
+}
+
+/* สถานะ */
+.ready{
+  color:#66ff99;
+  font-weight:bold;
+}
+.waiting{
+  color:#bbb;
+}
+
+/* mobile */
+@media(max-width:600px){
+  .pro-table-title{font-size:24px}
+  .pro-table thead th,
+  .pro-table tbody td{
+    padding:12px;
+    font-size:14px;
+  }
+.pro-table-wrap{
+  margin-top:80px; /* ปรับเลขได้ 60 / 100 ตามที่ชอบ */
+}
+
+<div class="topbar">
+  <div class="menu-btn" onclick="toggleMenu()">☰</div>
+
+  <a href="index.html" class="brand">
+    <img src="images/logo.png" alt="logo">
+    <div class="site-name">วัวชนสายใต้</div>
+  </a>
+</div>
+}
+.menu-btn{ top:80px; }
+
+.pro-table-wrap{
+  margin-top:120px;
+}
+
+body{
+  padding-top:120px;
+}
+/* TOPBAR */
+.topbar{
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%;
+  height: 120px;
+  background: #000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  border-bottom: 2px solid #ff9800;
+}
+
+/* โลโก้ + ชื่อ */
+.brand{
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  text-decoration: none;
+}
+
+.brand img{
+  height: 55px;
+}
+
+/* ชื่อเว็บ */
+.site-name{
+  color: #ffcc00;
+  font-size: 26px;
+  font-weight: bold;
+  text-shadow: 0 0 10px rgba(255,165,0,.8);
+}
+
+/* เอฟเฟกต์กระพิบ + เรืองแสง */
+@keyframes glowBlink{
+  0%{
+    opacity: 1;
+    filter: drop-shadow(0 0 5px #ff9800);
+  }
+  50%{
+    opacity: .6;
+    filter: drop-shadow(0 0 18px #ff9800);
+  }
+  100%{
+    opacity: 1;
+    filter: drop-shadow(0 0 5px #ff9800);
+  }
+}
+
+.blink-logo img,
+.blink-logo .site-name{
+  animation: glowBlink 1.5s infinite;
+}
+body{
+  padding-top: 130px;
+}
+
+
+
+
+
+</style>
+</head>
+
+<body>
+
+
+
+<!-- TOP BAR -->
+<div class="topbar">
+
+    <!-- โลโก้ + ชื่อ (กดกลับหน้าแรก) -->
+  <a href="index.html" class="brand blink-logo">
+    <img src="images/logo.png" alt="โลโก้">
+    <span class="site-name">วัวชนสายใต้</span>
+  </a>
+
+</div>
+
+
+  <div class="pro-table-title">สนามอุใดเจริญผัง34</div>
+
+  <table class="pro-table">
+    <thead>
+      <tr>
+        <th>คู่ที่</th>
+        <th>วัวฝ่ายแดง</th>
+        <th>วัวฝ่ายน้ำเงิน</th>
+        <th>สนาม</th>
+        <th>วันที่</th>
+        <th>สรุปผล</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td class="red-team">โคโหนดนิมิตรพิชิตชัยยอดขุนพล(โคล่า)</td>
+        <td class="blue-team">โคโหนดหนึ่งสยาม(จันเจ้า)</td>
+        <td>พัง34</td>
+        <td>4/01/2569</td>
+        <td class="ready">รอ</td>
+      </tr>
+
+      <tr><td>2</td><td class="red-team">แดงงามกระทิงทอง(อ้ายเฟือน)</td><td class="blue-team">โคลังสาดเสาร์ธงยอดมีชัย(เสาร์ธง)</td><td></td><td></td><td class="waiting">รอ</td></tr>
+      <tr><td>3</td><td class="red-team">โคโหนดฉกาจทายาทแสนราชสีห์(ไอ้หล่อ)</td><td class="blue-team">โคดุกด้างมเหศวรเพชรพยัคฆ์พันทาง(ตาแก้ว)</td><td></td><td></td><td class="waiting">รอ</td></tr>
+      <tr><td>4</td><td class="red-team">โคขาวเพชรสองเมือง(ข้าวเย็น)</td><td class="blue-team">โคโหนดงามเพชรอนาคิน(ชาโค)</td><td></td><td></td><td class="waiting">รอ</td></tr>
+      <tr><td>5</td><td class="red-team">โคลายใจเด้ดเพชรนำชัย(ลายชัดเจน)</td><td class="blue-team">โคโหนดเศษฐบารมีมงคลชัย(ไอ้ปุกปิก)</td><td></td><td></td><td class="waiting">รอ</td></tr>
+      <tr><td>6</td><td class="red-team">โคโหนดนำชัยทายาทเพชรอุใด</td><td class="blue-team">โคโหนดช่วยชาติยอดพิชิตชัย(มาริโอ้)</td><td></td><td></td><td class="waiting">รอ</td></tr>
+      <tr><td>7</td><td class="red-team">โคดุกด้างเพชรฆาตทายาทเขียวเสือ(ไอดุก)</td><td class="blue-team">โคขาวน้องมาย(ไอ้หัวโต)</td><td></td><td></td><td class="waiting">รอ</td></tr>
+      <tr><td>8</td><td class="red-team">โคโหนดใจเย็น</td><td class="blue-team">โคนิลเก็บทรัพย์พยัคฆ์นำชัย</td><td></td><td></td><td class="waiting">รอ</td></tr>
+      
+    </tbody>
+  </table>
+
+</div>
+
+<div class="pro-table-title">สนามชนโคบ้านหยีใน</div>
+
+  <table class="pro-table">
+    <thead>
+      <tr>
+        <th>คู่ที่</th>
+        <th>วัวฝ่ายแดง</th>
+        <th>วัวฝ่ายน้ำเงิน</th>
+        <th></th>
+        <th>วันที่</th>
+        <th>สรุปผล</th>
+      </tr>
+    </thead>
+
+    <tbody>
+      <tr>
+        <td>1</td>
+        <td class="red-team">           </td>
+        <td class="blue-team">          </td>
+        <td></td>
+        <td>4/01/2569</td>
+        <td class="ready">รอ</td>
+      </tr>
+
+      <tr><td>2</td><td class="red-team">          </td><td class="blue-team">          </td><td></td><td></td><td class="waiting">รอ</td></tr>
+      <tr><td>3</td><td class="red-team">          </td><td class="blue-team">          </td><td></td><td></td><td class="waiting">รอ</td></tr>
+      <tr><td>4</td><td class="red-team">           </td><td class="blue-team">          </td><td></td><td></td><td class="waiting">รอ</td></tr>
+      <tr><td>5</td><td class="red-team">           </td><td class="blue-team">           </td><td></td><td></td><td class="waiting">รอ</td></tr>
+      <tr><td>6</td><td class="red-team">           </td><td class="blue-team">           </td><td></td><td></td><td class="waiting">รอ</td></tr>
+      <tr><td>7</td><td class="red-team">           </td><td class="blue-team">          </td><td></td><td></td><td class="waiting">รอ</td></tr>
+      <tr><td>8</td><td class="red-team">          </td><td class="blue-team">          </td><td></td><td></td><td class="waiting">รอ</td></tr>
+                 
+    </tbody>
+  </table>
+
+</div>
+
+
+ 
+
+
+
+<script>
+
+  if(sidebar.style.left === "0px"){
+    sidebar.style.left = "-240px";
+    overlay.style.display = "none";
+  }else{
+    sidebar.style.left = "0px";
+    overlay.style.display = "block";
+  }
+}
+</script>
+<script>
+function toggleMenu(){
+  document.getElementById("sidebar").classList.toggle("active");
+  document.getElementById("overlay").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
