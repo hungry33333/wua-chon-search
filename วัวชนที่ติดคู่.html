@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>วัวชนสายใต้</title>
+
+<style>
+body {
+    margin: 0;
+    background: #000;
+    font-family: Tahoma, sans-serif;
+    color: #fff;
+}
+
+/* โลโก้ */
+.header {
+    text-align: center;
+    padding: 30px 0;
+}
+
+.header img {
+    width: 120px;
+    filter: drop-shadow(0 0 20px gold);
+}
+
+.header h2 {
+    margin-top: 10px;
+    color: gold;
+}
+
+/* โซนวัว */
+.arena {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 40px 80px;
+}
+
+/* กล่องวัว */
+.bull-box {
+    width: 330px;
+    text-align: center;
+}
+
+.bull-box img {
+    width: 100%;
+    border-radius: 12px;
+    border: 2px solid gold;
+    box-shadow: 0 0 25px orange;
+}
+
+.bull-name {
+    margin-top: 15px;
+    font-size: 20px;
+    color: gold;
+}
+
+/* ราคากลาง */
+.center-price {
+    text-align: center;
+    padding: 20px 30px;
+    border-radius: 50px;
+    background: linear-gradient(45deg, gold, orange);
+    color: #000;
+    font-size: 34px;
+    font-weight: bold;
+    box-shadow: 0 0 30px gold;
+    animation: glow 1.5s infinite;
+}
+
+/* เอฟเฟกต์กระพิบ */
+@keyframes glow {
+    0% { box-shadow: 0 0 15px gold; }
+    50% { box-shadow: 0 0 40px orange; }
+    100% { box-shadow: 0 0 15px gold; }
+}
+
+/* มือถือ */
+@media (max-width: 900px) {
+    .arena {
+        flex-direction: column;
+        gap: 30px;
+        padding: 20px;
+    }
+
+    .center-price {
+        font-size: 28px;
+    }
+}
+.logo-home {
+  display: flex;
+  justify-content: center;
+  margin: 20px 0;
+}
+
+.logo-home img {
+  width: 130px;
+  cursor: pointer;
+  animation: glow 2s infinite;
+}
+
+@keyframes glow {
+  0% {
+    filter: drop-shadow(0 0 5px orange);
+  }
+  50% {
+    filter: drop-shadow(0 0 15px gold);
+  }
+  100% {
+    filter: drop-shadow(0 0 5px orange);
+  }
+}
+
+</style>
+</head>
+
+<body>
+
+
+<a href="index.html" class="logo-home">
+  <img src="images/logo.png" alt="โลโก้วัวชน">
+</a>
+
+
+
+<!-- วัวชน + ราคา -->
+<div class="arena">
+
+    <!-- วัวซ้าย -->
+    <div class="bull-box">
+        <img src="images/ไกรทอง.png">
+        <div class="bull-name">
+            โคลายสิงห์ดำราย<br>(ไกรทอง)
+        </div>
+    </div>
+
+    <!-- ราคากลาง -->
+    <div class="center-price">
+        4,400,000
+    </div>
+
+    <!-- วัวขวา -->
+    <div class="bull-box">
+        <img src="images/ขาวน้อย.png">
+        <div class="bull-name">
+            ลังสาดขาวคมเพชรจอมเซียน<br>(ขาวน้อย)
+        </div>
+    </div>
+
+
+
+
+</div>
+
+</body>
+</html>

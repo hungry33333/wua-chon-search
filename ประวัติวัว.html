@@ -1,0 +1,227 @@
+
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<title>ประวัติวัวดัง</title>
+
+<style>
+body{
+  margin:0;
+  background:#000;
+  color:white;
+  font-family:Tahoma;
+}
+
+/* ค้นหา */
+.search-box{
+  text-align:center;
+  padding:20px;
+}
+.search-box input{
+  width:320px;
+  padding:12px 18px;
+  border-radius:30px;
+  border:none;
+  font-size:16px;
+}
+
+/* กล่องรวมวัวทั้งหมด */
+.cow-list{
+  display:grid;
+  grid-template-columns:repeat(auto-fit, minmax(220px, 1fr));
+  gap:16px;
+  padding:20px;
+}
+
+/* การ์ดวัว */
+.profile{
+  background:#111;
+  border-radius:16px;
+  padding:12px;
+  box-shadow:0 0 10px rgba(255,140,0,.35);
+}
+
+/* รูปวัว */
+.profile img{
+  width:100%;
+  height:170px;
+  object-fit:contain;
+  background:black;
+  border-radius:12px;
+}
+
+/* ชื่อวัว */
+.profile h1{
+  font-size:18px;
+  margin:8px 0;
+  text-align:center;
+  color:orange;
+}
+
+/* ข้อมูลย่อ */
+.info{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:6px;
+  font-size:14px;
+}
+.info div{
+  background:#1b1b1b;
+  padding:6px;
+  border-radius:6px;
+}
+
+/* รายละเอียดสั้น */
+.detail{
+  font-size:14px;
+  margin-top:8px;
+  color:#ccc;
+  line-height:1.4;
+}
+
+/* มือถือ */
+@media(max-width:600px){
+  .search-box input{width:260px}
+}
+/* โลโก้กระพิบ */
+.logo-blink{
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  padding: 10px 0;
+  background: #000;
+  text-decoration: none;
+  animation: blink 1.2s infinite;
+}
+
+.logo-blink img{
+  height: 45px;   /* 👈 ปรับเล็ก-ใหญ่ได้ */
+}
+
+.logo-blink span{
+  font-size: 22px;
+  font-weight: bold;
+  color: gold;
+  text-shadow: 0 0 10px orange;
+}
+
+@keyframes blink{
+  0%{opacity:1}
+  50%{opacity:.5}
+  100%{opacity:1}
+}
+
+</style>
+</head>
+
+<body>
+
+<a href="index.html" class="logo-blink">
+  <img src="images/logo.png" alt="โลโก้">
+  <span>วัวชนสายใต้</span>
+</a>
+
+
+<!-- ค้นหา -->
+<div class="search-box">
+  <input type="text" id="search" placeholder="🔍 ค้นชื่อวัว / สาย / เจ้าของ">
+</div>
+
+<!-- รายการวัว -->
+<div class="cow-list">
+
+  <!-- วัวตัวที่ 1 -->
+  <div class="profile" data-search="วันเด็ก แดง ลังสาด">
+    <img src="images/วันเด็ก.png">
+    <h1>แดงร้อยวิชาดาวรุ่ง (วันเด็ก)</h1>
+    <div class="info">
+      <div>สี: แดง</div>
+      <div>สถิติ: 6-0</div>
+      <div>ค่ายโค:ค่ายโคสุภารดา</div>
+    </div>
+    <div class="detail">1.ชนะ สนามทุ่งสง</div>
+      <div class="detail">2.ชนะ สนามทุ่งสง</div>
+<div class="detail">3.ชนะ ดุกด้างขุนเดช(อ้ายมส.)</div>
+<div class="detail">4.ชนะ ดุกด้างเพชรอัศวินดำ</div>
+<div class="detail">5.ชนะ ลายสตาร์วอร์(โยดา)</div>
+<div class="detail">6.ชนะ โหนดเกียรตินำโชค(สามแสน)</div>
+  </div>
+
+  <!-- วัวตัวที่ 2 -->
+  <div class="profile" data-search="ไกรทอง สายฟ้า แดง">
+    <img src="images/ลูกมดคันไฟ.png">
+    <h1>ลังสาดวาสนาพาโชค(ลูกมดคันไฟ)</h1>
+    <div class="info">
+      <div>สี: ลังสาด</div>
+      <div>สถิติ: 6-0</div>
+      <div>ค่ายโค:ค่ายโคสุภารดา</div>
+    </div>
+    <div class="detail">1.ชนะ สนามระโนด</div>
+<div class="detail">2.ชนะ สนามทรายขาว</div>
+<div class="detail">3.ชนะ โหนดเอกวิชาขวัญใจท่าโด</div>
+<div class="detail">4.ชนะ โหนดท้องลายตะวันแดง(ขุนแผน)</div>
+<div class="detail">5.ชนะ แดงคอมโดมินิคไทแร็ตโต้(อ้ายเข้)</div>
+<div class="detail">6.ชนะ ขาวงามฟ้าแลบน้อย</div>
+  </div>
+
+  <!-- วัวตัวที่ 3 -->
+  <div class="profile" data-search="แดงสายฟ้า แชมป์">
+    <img src="images/ซุปเปอร์บอล.png">
+    <h1>โหนดหลังขาวศิลป์ไทยยอดนักสู้(ซุปเปอร์บอล)</h1>
+    <div class="info">
+      <div>สี:โหนดหลังขาว</div>
+      <div>สถิติ: 7-เสมอ1</div>
+      <div>เจ้าของ: </div>
+    </div>
+    <div class="detail"></div>
+<div class="detail">1.ชนะ ดุกด้างทวีทรัพย์ สนามนาทราย</div>
+<div class="detail">2.ชนะ แดงงามศักดิ์ทนงชัย (อ้ายผ่าน)</div>
+<div class="detail">3.ชนะ ขาวเพชรสายัณห์ (แหลมทอง)</div>
+<div class="detail">4.ชนะ ลังสาดราชสีห์ (บุญรอด)</div>
+<div class="detail">5.ชนะ แดงงามเพชรพลอย (เพชรพลอย)</div>
+<div class="detail">6.เสมอ โหนดบัลลังก์ทอง</div>
+<div class="detail">7.ชนะ โหนดหลังขาวอัศวินแก่นเพชรยอดมงคลชัย (แมสซี่)</div>
+<div class="detail">8.ชนะ แดงเหลี่ยมเพชรพยัคฆ์พันธ์ทาง (ไอ้มาร)</div>
+  </div>
+
+
+<div class="profile" data-search="แดงสายฟ้า แชมป์">
+    <img src="images/แดงชวนชม.png">
+    <h1>แดงชวนชม (ดอกบัวขาว)</h1>
+    <div class="info">
+      <div>สี:แดง</div>
+      <div>สถิติ: 6-0</div>
+      <div>ค่ายโค:ค่ายโคปชาทอง</div>
+    </div>
+    <div class="detail"></div>
+<div class="detail">1.ชนะ พระจันทร์ฉาย</div>
+<div class="detail">2.ชนะ สุดหล่อควนโตน</div>
+<div class="detail">3.ชนะ ขาวเพชรมีชัย</div>
+<div class="detail">4.ชนะ ขาวงามจักรพรรดิ์ (ไอ้รถทัวร์)</div>
+<div class="detail"> 5.ชนะ โหนดสิงห์โต (ไอ้ปิคนิค)</div>
+<div class="detail">6.ชนะ ขาวงามยอดบัณฑิตเลื่องลือฤทธิ์พิชิตชัย (ลูกเบอร์สตูล)</div>
+
+  </div>
+
+</div>
+
+<script>
+const search=document.getElementById("search");
+const profiles=document.querySelectorAll(".profile");
+
+search.addEventListener("keyup",()=>{
+  let v=search.value.toLowerCase();
+  profiles.forEach(p=>{
+    p.style.display = p.dataset.search.toLowerCase().includes(v)
+      ? "block" : "none";
+  });
+});
+</script>
+
+</body>
+</html>
