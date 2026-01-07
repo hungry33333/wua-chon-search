@@ -209,10 +209,57 @@ body{
     <div class="site-name">วัวชนสายใต้</div>
   </a>
 </div>
+....................................................................................
+.btn-center {
+  text-align: center;
+  margin-top: 18px;
+}
+.btn-center {
+  text-align: center;
+  margin-top: 18px;
+}
+
+.glow-btn {
+  display: inline-block;
+  padding: 12px 30px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 30px;
+  background: linear-gradient(45deg, #ff9800, #ff5722);
+  box-shadow: 0 0 10px #ff9800, 0 0 20px #ff5722;
+  transition: 0.3s ease;
+}
+.menu-horizontal {
+  display: flex;
+  justify-content: center;
+  gap: 30px;              /* ระยะห่างระหว่างปุ่ม */
+  margin: 70px auto;
+  flex-wrap: wrap;        /* มือถือจะขึ้นบรรทัดใหม่อัตโนมัติ */
+}
+
+.menu-btn {
+  min-width: 220px;
+  padding: 16px 24px;
+  font-size: 20px;
+  font-weight: bold;
+  text-align: center;
+  color: #000;
+  text-decoration: none;
+  border-radius: 40px;
+  background: linear-gradient(45deg, #ffd700, #ff9800);
+  box-shadow: 0 0 18px #ffd700, 0 0 35px #ff9800;
+  transition: all 0.3s ease;
+}
+
+.menu-btn:hover {
+  transform: translateY(-6px) scale(1.05);
+  box-shadow: 0 0 30px #ffeb3b, 0 0 60px #ff9800;
+}
+
 
 </style>
-
-  <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-FL868K5JQN"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -221,10 +268,11 @@ body{
 
   gtag('config', 'G-FL868K5JQN');
 </script>
-
 </head>
 
 <body>
+
+
 
 
  <div class="overlay" id="overlay" onclick="toggleMenu()"></div>
@@ -249,28 +297,16 @@ body{
 
 <div class="menu-section">
 
-  <!-- การ์ดที่ 1 -->
-  <div class="menu-card">
-    <div class="menu-icon">📜</div>
-    <a href="daroof.html" class="menu-title">ตารางวัวพรุ่งนี้</a>
-    <div class="menu-divider"></div>
-    <div class="menu-desc">
-      รวมคู่ชน สนามเด็ด  
-      อัปเดตทุกวัน
-    </div>
-  </div>
+<div class="menu-horizontal">
+  <a href="วัวชนที่ติดคู่.html" class="menu-btn">🐂 วัวชนที่ติดคู่</a>
+  <a href="search.html" class="menu-btn">🔥 ตัวชอบวันนี้</a>
+  <a href="daroof.html" class="menu-btn">📋 ตารางวัวชน</a>
+  <a href="ประวัติวัว.html" class="menu-btn">📋ประวัตติวัวตัวดัง</a>
+</div>
 
-  <!-- การ์ดที่ 2 -->
-  <div class="menu-card">
-    <div class="menu-icon">🐂</div>
-    <a href="search.html" class="menu-title">ทีเด็ดวัวชน</a>
-    <div class="menu-divider"></div>
-    <div class="menu-desc">
-      ค้นหาวัวชนตามชื่อ  
-      เซียนชน คอกดัง
-    </div>
-  </div>
 
+
+ 
 </div>
 
 </div>
@@ -289,4 +325,6 @@ function toggleMenu(){
 
 </body>
 </html>
+
+  
 
